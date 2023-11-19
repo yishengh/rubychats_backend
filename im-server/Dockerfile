@@ -7,7 +7,7 @@ COPY ./target/im-server.jar im-server.jar
 RUN java -version
 # Expose ports
 EXPOSE 8877
-
+EXPOSE 8878
 
 # Define the startup command to run all JAR files
 CMD ["java", "-jar", "im-server.jar"]
