@@ -1,0 +1,51 @@
+#这是配置服务的端口
+server:
+  port: 8888
+#配置项目的数据源
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://173.249.206.87:3306/box_im?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true
+    username: box
+    password: hys1998
+
+  redis:
+    host: 173.249.206.87
+    port: 6379
+    password: jhkdjhkjdhsIUTYURTU_p6ekja
+    database: 1
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+mybatis-plus:
+  configuration:
+    # 是否开启自动驼峰命名规则（camel case）映射，即从经典数据库列名 A_COLUMN（下划线命名） 到经典 Java 属性名 aColumn（驼峰命名） 的类似映射
+    map-underscore-to-camel-case: false
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # mapper
+  mapper-locations:
+    # *.xml的具体路径
+    - classpath*:mapper/*.xml
+minio:
+  endpoint: http://173.249.206.87:9001 #内网地址
+  public: http://173.249.206.87:9001 #外网访问地址
+  accessKey: admin
+  secretKey: admin123456
+  bucketName: box-im2
+  imagePath: image
+  filePath: file
+
+webrtc:
+  iceServers:
+    - urls: stun:stun.l.google.com:19302
+
+jwt:
+  accessToken:
+    expireIn: 1800 #半个小时
+    secret: MIIBIjANBgkq
+  refreshToken:
+    expireIn: 604800 #7天
+    secret: IKDiqVmn0VFU
