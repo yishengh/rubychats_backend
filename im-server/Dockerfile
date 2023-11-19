@@ -2,7 +2,7 @@
 FROM openjdk:8-jdk-alpine
 
 # Copy your JAR files to the container
-COPY ./target/im-platform.jar im-platform.jar
+COPY ./target/im-server.jar im-server.jar
 
 RUN java -version
 # Expose ports
